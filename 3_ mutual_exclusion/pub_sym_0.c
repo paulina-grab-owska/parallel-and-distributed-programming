@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
     }
 
     int l_kf = atoi(argv[1]);
-        int l_kl = atoi(argv[2]);
+    int l_kl = atoi(argv[2]);
 
     available_mugs = l_kf;
 
