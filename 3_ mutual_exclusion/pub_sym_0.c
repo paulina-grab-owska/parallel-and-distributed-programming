@@ -15,11 +15,11 @@ void* client_thread(void* arg) {
 
     while (mugs_drunk < LITR_TO_DRINK) {
         // proba pobrania kufla
-        pthread_mutex_lock(&mug_mutex);
+        //pthread_mutex_lock(&mug_mutex);
         if (available_mugs > 0) {
             available_mugs--;  // pobranie
             printf("klient %d pobrał kufel.\t pozostało kufli: %d\n", client_id, available_mugs);
-            pthread_mutex_unlock(&mug_mutex);
+            //pthread_mutex_unlock(&mug_mutex);
 
             // napelniania kufla
             printf("klient %d napelnia kufel.\n", client_id);
@@ -30,16 +30,16 @@ void* client_thread(void* arg) {
                         sleep(rand() % 5 + 5);  // kilkanascie sekund
 
             // oddanie kufla
-            pthread_mutex_lock(&mug_mutex);
+            //pthread_mutex_lock(&mug_mutex);
             available_mugs++;
             printf("klient %d oddal kufel. \t dostepnych kufli: %d\n", client_id, available_mugs);
-            pthread_mutex_unlock(&mug_mutex);
+            //pthread_mutex_unlock(&mug_mutex);
 
             mugs_drunk++;
         } else {
             // brak kufli - czekanie
             printf("klient %d czeka na kufel.\n", client_id);
-            pthread_mutex_unlock(&mug_mutex);
+            //pthread_mutex_unlock(&mug_mutex);
             usleep(500000);  // 0.5 sekundy przed ponowna proba
         }
     }
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
     int client_ids[l_kl];
 
     // inicjalizacja mutexa
-    pthread_mutex_init(&mug_mutex, NULL);
+   // pthread_mutex_init(&mug_mutex, NULL);
 
     // tworzenie watkow (klienci)
     for (int i = 0; i < l_kl; i++) {
@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
         printf("ERROR: liczba kufli sie nie zgadza!\n");
     }
     // zwolnienie zasobow
-    pthread_mutex_destroy(&mug_mutex);
+    //pthread_mutex_destroy(&mug_mutex);
 
     return 0;
 }
