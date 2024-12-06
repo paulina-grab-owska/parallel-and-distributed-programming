@@ -5,6 +5,11 @@
 typedef struct {
   int l_p; // liczba piszacych
   int l_c; // liczba czytajacych
+  int waiting_readers;
+  int waiting_writers;
+  pthread_mutex_t mutex;
+  pthread_mutex_t readers);
+  pthread_mutex_t writers;
 } cz_t;
 
 /*** Deklaracje procedur interfejsu ***/
