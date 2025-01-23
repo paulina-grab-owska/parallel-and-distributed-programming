@@ -1,1 +1,1 @@
-# This repository contains a semester of research and analysis of how parallel and distributed programming works in C and Java
+# this repository contains files from a semester of work on parallel and distributed programming and computing, analyzing aspects such as parallelism in C, Java, OpenMP, MPI and post-measure performance comparisons
